@@ -1,0 +1,43 @@
+# Normalize line endings on commit; check out with native line endings.
+* text=auto eol=lf
+
+# Source / config files: always LF
+*.ts        text eol=lf
+*.tsx       text eol=lf
+*.js        text eol=lf
+*.mjs       text eol=lf
+*.cjs       text eol=lf
+*.json      text eol=lf
+*.html      text eol=lf
+*.css       text eol=lf
+*.svg       text eol=lf
+*.md        text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+
+# Shell scripts: always LF
+*.sh        text eol=lf
+
+# Windows batch files: CRLF
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
+# Binary assets
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.webp      binary
+*.heic      binary
+*.heif      binary
+*.mp4       binary
+*.mov       binary
+*.zip       binary
+*.gz        binary
+*.tgz       binary
+*.woff      binary
+*.woff2     binary
+
+# Hide auto-generated files in PR diffs (kept under version control though)
+package-lock.json linguist-generated=true
