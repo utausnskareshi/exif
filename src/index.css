@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  /* iPhone のセーフエリア対応 */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.dark body {
+  @apply bg-slate-900 text-slate-100;
+}
+
+/* iOS で input[type=file] がデフォルトで太字になるのを抑える */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Leaflet コントロール調整 */
+.leaflet-container {
+  border-radius: 0.5rem;
+  font-family: inherit;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white;
+  }
+  .btn-secondary {
+    @apply bg-slate-200 text-slate-900 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600;
+  }
+  .btn-danger {
+    @apply bg-danger-600 text-white hover:bg-danger-700;
+  }
+  .btn-warn {
+    @apply bg-warn-600 text-white hover:bg-warn-700;
+  }
+  .card {
+    @apply rounded-xl bg-white shadow-sm ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium;
+  }
+}
+
+/* 安全インジケータ — 画面のふちを着色 */
+.frame-safe {
+  box-shadow: inset 0 0 0 4px theme('colors.safe.500');
+}
+.frame-warn {
+  box-shadow: inset 0 0 0 4px theme('colors.warn.500');
+}
+.frame-danger {
+  box-shadow: inset 0 0 0 4px theme('colors.danger.500');
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
